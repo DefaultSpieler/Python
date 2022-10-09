@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>The Movie</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <style type="text/css">
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content" style="color: white;">
+  {% if user.is_authenticated %}
+    <li><a href="{% url 'profile' user.username %}" style="color: white; background-color: black;">Profile</a></li>
+    <li><a href="{% url 'change-password' %}" style="color: white; background-color: black;">Change Password</a></li>
+    <li class="divider"></li>
+    <li><a href="{% url 'logout' %}" style="color: white; background-color: black;">Log out</a></li>
+  {% endif %}
+</ul> 
+<nav class="dark-black" style="background-color: black; color: white;">
+  <div class="nav-wrapper">
+    <a href="{% url 'index' %}" class="brand-logo" style="color: white;">theMovieDatabase</a>
+    <ul class="right hide-on-med-and-down" style="color: white;">
+
+
+      <!-- Dropdown Trigger -->
+    {% if user.is_authenticated %}
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1" style="color: white;">{{ user.username }}<i class="material-icons right" style="color: white;">arrow_drop_down</i></a>
+    {% else %}
+      <li><a href="{% url 'login' %}">Please sign in</a></li>
+    {% endif %}
+
+
+      </li>
+    </ul>
+  </div>
+</nav>
+        
+
+{% block banner %}
+{% endblock %}
+
+  <div class="container">
+    <div class="section">
+
+    {% block content %}
+    {% endblock %}
+
+    </div>
+  </div>
+
+
+<!-- FOOTER-->
+
+    <footer class="page-footer yellow">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="black-text">Developer's Bio</h5>
+            <p class="grey-text text-darken-4">
+              The Movie Database System is my 2nd year College Project. I
+              couldnt think of any cool names to name my website, if you have
+              any name in your mind please let me know. The Documentation for
+              the Project is also included within one of the webpages. This is
+              my very first project, which is all done by me from scratch.
+            </p>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="black-text">References</h5>
+            <ul>
+              <li>
+                <a class="black-text" href="https://materializecss.com/"
+                  >Materialize</a
+                >
+              </li>
+              <li>
+                <a
+                  class="black-text"
+                  href="https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"
+                  >Tech with Tim</a
+                >
+              </li>
+              <li>
+                <a class="black-text" href="https://m.youtube.com/c/DennisIvy"
+                  >Dennis Ivy</a
+                >
+              </li>
+              <li>
+                <a class="black-text" href="https://www.freecodecamp.org/"
+                  >FreeCodeCamp</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="black-text">Connect</h5>
+            <ul>
+              <li>
+                <a
+                  class="black-text"
+                  href="https://www.linkedin.com/in/yashpreet-kaur-virk-99590b162/"
+                  >LinkedIn</a
+                >
+              </li>
+              <li><a class="black-text" href="#!">Twitter</a></li>
+              <li><a class="black-text" href="#!">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container" style="color: black;">Made with &#128151; by DefaultSpieleR</div>
+      </div>
+    </footer>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+  </body>
+</html>

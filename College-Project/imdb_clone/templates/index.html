@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block banner %}
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h1 class="header center black-text text-lighten-2">Find your favorite movie here </h1>
+              <div class="row">
+
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s12">
+
+                    <textarea typ="submit" id="textarea1" name="q" value="{{ request.GET.q }}" class="materialize-textarea black-text" style="color: black;"></textarea>
+
+                    <label for="textarea1" style="color: black;">Search here</label>
+                  </div>
+
+                  <button type="submit" name="action" class="waves-effect waves-dark btn" style="background-color: black"><i class="material-icons left" style="background-color: black">search</i>Search</button>
+
+                </div>
+              </form>
+            </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/back.jpg' %}" alt="Unsplashed background img 1" width="500" height="600"></div>
+  </div>
+{% endblock %}
+
+
+{% block content %}
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons" style="color: black;">movie</i></h2>
+            <h5 class="center">Find your favorite movie</h5>
+<br>
+                     </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons" style="color: black;">library_add</i></h2>
+            <h5 class="center">Create watchlist and more</h5>
+<br>
+            
+          </div>
+        </div>
+
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons" style="color: black;">rate_review</i></h2>
+            <h5 class="center">Review your favorite movies</h5>
+<br>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
